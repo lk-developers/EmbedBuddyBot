@@ -2,15 +2,18 @@ const DiscordJs = require('discord.js');
 const Config = require('./config');
 const Permission = require('./permission');
 const Embed = require('./embed');
+const Commands = require('../config/commands.json');
 
 const embedBuddy = new DiscordJs.Client();
 const settings = Config.getConfigs();
 
+// start the bot
 const init = () => {
     registerListeners();
     embedBuddy.login(settings.BOT_TOKEN);
 }
 
+// event listeners for bot events 
 const registerListeners = () => {
     embedBuddy.on('ready', () => {
         console.log(`Logged in as ${embedBuddy.user.tag}!`);
@@ -26,14 +29,20 @@ const registerListeners = () => {
             if (Permission.check(msg)) {
                 // get data from user msg
                 let data = (msg.content).split(settings.BOT_TRIGGER)[1].trim();
-                
-                // get embed data object
-                let embedData = getEmbedData(data);
 
-                // create embed
-                let customEmbed = Embed.getEmbed(embedData);
+                // check if this is not a custom command
+                if (!Commands[data]) {
+                    // get embed data object
+                    let embedData = getEmbedData(data);
+                    // create embed
+                    let customEmbed = Embed.getEmbed(embedData);
+                    // send custom embed to discord
+                    sendResponse(msg, customEmbed, embedData.chName);
 
-                sendResponse(msg, customEmbed, embedData.chName);
+                } else {
+                    // send response for the custom command
+                    sendResponse(msg, Commands[data]);
+                }
 
             } else {
                 sendResponse(msg, "```Sorry, You don't have the Permission!.```");
@@ -46,7 +55,7 @@ const registerListeners = () => {
     });
 };
 
-// create an object with data from discord
+// create and return an object with data from discord
 const getEmbedData = (data) => {
     // split data to a array
     let info = data.split("|");
@@ -54,7 +63,7 @@ const getEmbedData = (data) => {
     let embedData = {
         "title": "",
         "desc": "",
-        "ch": "",
+        "chName": "",
         "color": "",
         "thumb": "",
         "author": {
@@ -77,7 +86,7 @@ const getEmbedData = (data) => {
 };
 
 // send response back to discord
-const sendResponse = (msg, str, chName="") => {
+const sendResponse = (msg, str, chName = "") => {
     if (chName == "") {
         msg.channel.send(str)
     } else {
