@@ -1,0 +1,9 @@
+{
+    "BOT_TOKEN": "",
+    "BOT_TRIGGER": "?embed",
+    "ALLOWED_ROLES": [
+        "hitanEmbed",
+        "fatpig",
+        "Bots"
+    ]
+}
