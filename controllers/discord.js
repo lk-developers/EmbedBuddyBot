@@ -38,6 +38,9 @@ const registerListeners = () => {
             } else {
                 sendResponse(msg, "```Sorry, You don't have the Permission!.```");
             }
+
+            // delete command msg after 1s
+            msg.delete(1000);
         }
 
     });
