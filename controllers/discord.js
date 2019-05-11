@@ -25,7 +25,7 @@ const registerListeners = () => {
 
             if (Permission.check(msg)) {
                 // get data from user msg
-                let data = (msg.content).split(settings.BOT_TRIGGER)[1].trim().toLocaleLowerCase();
+                let data = (msg.content).split(settings.BOT_TRIGGER)[1].trim();
                 
                 // get embed data object
                 let embedData = getEmbedData(data);
