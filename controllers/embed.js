@@ -7,7 +7,7 @@ const getEmbed = (data) => {
         .setTitle(data.title)
         .setAuthor(data.author.name, data.author.img, data.author.link)
         .setDescription(data.desc)
-        .setThumbnail(data.thumb)
+        .setThumbnail(data.thumb);
 
     return embed;
 };
@@ -102,7 +102,7 @@ const getEmbedDataTemplate = () => {
             "img": "",
             "link": ""
         }
-    }
+    };
 };
 
 module.exports = {

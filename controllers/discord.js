@@ -12,7 +12,7 @@ const settings = Config.getConfigs();
 const init = () => {
     registerListeners();
     embedBuddy.login(settings.BOT_TOKEN);
-}
+};
 
 // event listeners for bot events 
 const registerListeners = () => {
@@ -61,7 +61,7 @@ const sendResponse = (msg, str, chName = "") => {
         msg.channel.send(str);
     } else {
         const channel = embedBuddy.channels.find(channels => channels.name == chName);
-        channel.send(str)
+        channel.send(str);
     }
 
     // delete command msg after 1s if enabled

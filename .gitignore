@@ -85,3 +85,6 @@ typings/
 
 #ftp configs
 ftp-kr.json
+
+#jshint config
+.jshintrc
