@@ -1,6 +1,6 @@
 const Config = require('./config');
 
-const allowedRoles = Config.getConfigs().ALLOWED_ROLES;
+const allowedRoles = Config.getConfigs().ROLES_ALLOWED;
 
 const check = (msg) => {
     let memberRoles = msg.member.roles;

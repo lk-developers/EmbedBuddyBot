@@ -64,8 +64,10 @@ const sendResponse = (msg, str, chName = "") => {
         channel.send(str)
     }
 
-    // delete command msg after 1s
-    msg.delete(1000);
+    // delete command msg after 1s if enabled
+    if (settings.COMMAND_AUTO_DELETE) {
+        msg.delete(1000);
+    }
 };
 
 
