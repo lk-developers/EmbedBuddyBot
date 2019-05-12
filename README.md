@@ -4,11 +4,19 @@ Simple discord bot for sending custom embeds to channels
 
 ## Setting up
 - Clone this repo using,
-`git clone https://github.com/ipmanlk/EmbedBuddy.git`
+`git clone https://github.com/ipmanlk/EmbedBuddyBot.git`
 - Run `npm install` to install all dependencies.
 - Edit `config.json` file inside the config directory.
 - Run `npm start` or `node server.js` to start the bot.
-- You can customize prefix and allowed roles using the `config.json`.
+
+## Customization
+- `config` directory contains all configuration files.
+
+### Config files
+- `config.json` - Basic options such as bot token & allowed roles.
+- `commands.json` - Custom commands with their responses.
+- `responses.json` - Responses used inside the code.  
+  ***ex,*** *Response to send when user doesn't have the permission.*
 
 ## How to use
 ### Command Syntax
