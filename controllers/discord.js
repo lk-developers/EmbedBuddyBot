@@ -3,6 +3,7 @@ const Config = require('./config');
 const Permission = require('./permission');
 const Embed = require('./embed');
 const Commands = require('../config/commands.json');
+const Responses = require('../config/responses.json');
 
 const embedBuddy = new DiscordJs.Client();
 const settings = Config.getConfigs();
@@ -31,7 +32,7 @@ const msgHandler = (msg) => {
     if (!(msg.content).startsWith(settings.BOT_TRIGGER)) return;
     // check if user has permissions
     if (!Permission.check(msg)) {
-        sendResponse(msg, "```You don't have the permission to use this command!.```");
+        sendResponse(msg, Responses.NO_PERMISSION);
         return;
     }
 
