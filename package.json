@@ -1,5 +1,5 @@
 {
-  "name": "embed_buddy",
+  "name": "embed-buddy-bot",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "ipmanlk",
+  "license": "MIT",
   "dependencies": {
     "discord.js": "^11.4.2"
   }
