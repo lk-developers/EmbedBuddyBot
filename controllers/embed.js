@@ -26,7 +26,6 @@ const getEmbedData = (discordData) => {
     return embedData;
 };
 
-
 const getBasicEmbedData = (discordData) => {
     // split data to a array
     let info = discordData.split("|");
@@ -45,7 +44,6 @@ const getBasicEmbedData = (discordData) => {
     return embedData;
 };
 
-
 const getRichEmbedData = (discordData) => {
     // split data to a array
     let info = discordData.split("|");
@@ -54,7 +52,6 @@ const getRichEmbedData = (discordData) => {
 
     info.forEach(item => {
         let key = item.split(":")[0].trim();
-        console.log(key);
         let value = item.split(":")[1].trim();
 
         switch (key) {
@@ -87,8 +84,6 @@ const getRichEmbedData = (discordData) => {
 
     return embedData;
 };
-
-
 
 const getEmbedDataTemplate = () => {
     return {

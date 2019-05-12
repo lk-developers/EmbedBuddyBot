@@ -70,7 +70,6 @@ const sendResponse = (msg, str, chName = "") => {
     }
 };
 
-
 module.exports = {
     init
 };
