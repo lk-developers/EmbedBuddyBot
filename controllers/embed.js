@@ -1,5 +1,5 @@
 const DiscordJs = require('discord.js');
-const Embeds = require('../embeds/embeds.json');
+// const Embeds = require('../embeds/embeds.json');
 
 const getEmbed = (data) => {
     const embed = new DiscordJs.RichEmbed()
@@ -10,25 +10,28 @@ const getEmbed = (data) => {
         .setThumbnail(data.thumb)
 
     return embed;
-}
+};
 
 // create and return an object with data from discord
 const getEmbedData = (discordData) => {
+    let embedData;
+
+    // check this data has key value pairs (rich bot commands) 
+    if (/[\w]+:[\w]+/.test(discordData)) {
+        embedData = getRichEmbedData(discordData);
+    } else {
+        embedData = getBasicEmbedData(discordData);
+    }
+
+    return embedData;
+};
+
+
+const getBasicEmbedData = (discordData) => {
     // split data to a array
     let info = discordData.split("|");
 
-    let embedData = {
-        "title": "",
-        "desc": "",
-        "chName": "",
-        "color": "",
-        "thumb": "",
-        "author": {
-            "name": "",
-            "img": "",
-            "link": ""
-        }
-    };
+    let embedData = getEmbedDataTemplate();
 
     if (info[0]) embedData.title = info[0].trim();
     if (info[1]) embedData.desc = info[1].trim();
@@ -40,6 +43,66 @@ const getEmbedData = (discordData) => {
     if (info[7]) embedData.author.link = info[7].trim();
 
     return embedData;
+};
+
+
+const getRichEmbedData = (discordData) => {
+    // split data to a array
+    let info = discordData.split("|");
+
+    let embedData = getEmbedDataTemplate();
+
+    info.forEach(item => {
+        let key = item.split(":")[0].trim();
+        console.log(key);
+        let value = item.split(":")[1].trim();
+
+        switch (key) {
+            case "ti":
+                embedData.title = value;
+                break;
+            case "de":
+                embedData.desc = value;
+                break;
+            case "ch":
+                embedData.chName = value;
+                break;
+            case "co":
+                embedData.color = value;
+                break;
+            case "th":
+                embedData.thumb = value;
+                break;
+            case "an":
+                embedData.author.name = value;
+                break;
+            case "ai":
+                embedData.author.img = value;
+                break;
+            case "al":
+                embedData.author.link = value.trim();
+                break;
+        }
+    });
+
+    return embedData;
+};
+
+
+
+const getEmbedDataTemplate = () => {
+    return {
+        "title": "",
+        "desc": "",
+        "chName": "",
+        "color": "",
+        "thumb": "",
+        "author": {
+            "name": "",
+            "img": "",
+            "link": ""
+        }
+    }
 };
 
 module.exports = {
