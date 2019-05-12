@@ -50,7 +50,7 @@ const msgHandler = (msg) => {
 
     } else {
         // send response for the custom command
-        sendResponse(msg, Commands[data]);
+        sendResponse(msg, Commands[discordData]);
     }
 
 };
