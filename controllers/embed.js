@@ -52,7 +52,12 @@ const getRichEmbedData = (discordData) => {
 
     info.forEach(item => {
         let key = item.split(":")[0].trim();
-        let value = item.split(":")[1].trim();
+        let value = item.split(":")[1].trim();;
+
+        // fix for urls
+        if (key == "th" || key == "ai") {
+            value = `${item.split(":")[1]}:${item.split(":")[2]}`;
+        }
 
         switch (key) {
             case "ti":
