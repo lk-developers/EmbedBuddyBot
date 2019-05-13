@@ -1,4 +1,4 @@
-const discord = require('./controllers/discord');
+const bot = require('./controllers/bot');
 
 // start the bot
-discord.init();
+bot.init();
