@@ -17,7 +17,7 @@ const getEmbedData = (discordData) => {
     let embedData;
 
     // check this data has key value pairs (rich bot commands) 
-    if (/[\w]+:[\w]+/.test(discordData)) {
+    if (/[\w]+~[\w]+/.test(discordData)) {
         embedData = getRichEmbedData(discordData);
     } else {
         embedData = getBasicEmbedData(discordData);
@@ -52,13 +52,8 @@ const getRichEmbedData = (discordData) => {
 
     try {
         info.forEach(item => {
-            let key = item.split(":")[0].trim();
-            let value = item.split(":")[1].trim();
-
-            // fix for urls
-            if (key == "th" || key == "ai") {
-                value = `${item.split(":")[1]}:${item.split(":")[2]}`;
-            }
+            let key = item.split("~")[0].trim();
+            let value = item.split("~")[1].trim();
 
             switch (key) {
                 case "ti":
