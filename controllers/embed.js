@@ -50,42 +50,47 @@ const getRichEmbedData = (discordData) => {
 
     let embedData = getEmbedDataTemplate();
 
-    info.forEach(item => {
-        let key = item.split(":")[0].trim();
-        let value = item.split(":")[1].trim();;
+    try {
+        info.forEach(item => {
+            let key = item.split(":")[0].trim();
+            let value = item.split(":")[1].trim();
 
-        // fix for urls
-        if (key == "th" || key == "ai") {
-            value = `${item.split(":")[1]}:${item.split(":")[2]}`;
-        }
+            // fix for urls
+            if (key == "th" || key == "ai") {
+                value = `${item.split(":")[1]}:${item.split(":")[2]}`;
+            }
 
-        switch (key) {
-            case "ti":
-                embedData.title = value;
-                break;
-            case "de":
-                embedData.desc = value;
-                break;
-            case "ch":
-                embedData.chName = value;
-                break;
-            case "co":
-                embedData.color = value;
-                break;
-            case "th":
-                embedData.thumb = value;
-                break;
-            case "an":
-                embedData.author.name = value;
-                break;
-            case "ai":
-                embedData.author.img = value;
-                break;
-            case "al":
-                embedData.author.link = value.trim();
-                break;
-        }
-    });
+            switch (key) {
+                case "ti":
+                    embedData.title = value;
+                    break;
+                case "de":
+                    embedData.desc = value;
+                    break;
+                case "ch":
+                    embedData.chName = value;
+                    break;
+                case "co":
+                    embedData.color = value;
+                    break;
+                case "th":
+                    embedData.thumb = value;
+                    break;
+                case "an":
+                    embedData.author.name = value;
+                    break;
+                case "ai":
+                    embedData.author.img = value;
+                    break;
+                case "al":
+                    embedData.author.link = value.trim();
+                    break;
+            }
+        });
+    } catch (e) {
+        embedData.title = "Unable to parse the input data!.";
+        embedData.color = "#ff0000";
+    }
 
     return embedData;
 };
