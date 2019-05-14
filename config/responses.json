@@ -1,4 +1,5 @@
 {
     "NO_PERMISSION": "```You don't have the permission to use this command!.```",
-    "MSG_SEND_ERROR":"```Unable to send the embed!. Did you mix syntax styles?.```"
+    "MSG_SEND_ERROR":"```Unable to send the embed!. Did you mix syntax styles?.```",
+    "INPUT_PARSE_ERROR":"Unable to parse the input data!."
 }

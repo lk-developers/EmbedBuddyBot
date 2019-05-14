@@ -1,4 +1,5 @@
 const DiscordJs = require('discord.js');
+const Responses = require('../config/responses.json');
 // const Embeds = require('../embeds/embeds.json');
 
 const getEmbed = (data) => {
@@ -83,7 +84,7 @@ const getRichEmbedData = (discordData) => {
             }
         });
     } catch (e) {
-        embedData.title = "Unable to parse the input data!.";
+        embedData.title = Responses.INPUT_PARSE_ERROR;
         embedData.color = "#ff0000";
     }
 
