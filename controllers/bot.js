@@ -57,13 +57,16 @@ const msgHandler = (msg) => {
 
 // send response back to discord
 const sendResponse = (msg, str, chName = "") => {
-    if (chName == "") {
-        msg.channel.send(str);
-    } else {
-        const channel = embedBuddy.channels.find(channels => channels.name == chName);
-        channel.send(str);
+    try {
+        if (chName == "") {
+            msg.channel.send(str);
+        } else {
+            const channel = embedBuddy.channels.find(channels => channels.name == chName);
+            channel.send(str);
+        }
+    } catch(e) {
+        msg.channel.send(Responses.MSG_SEND_ERROR);
     }
-
     // delete command msg after 1s if enabled
     if (settings.COMMAND_AUTO_DELETE) {
         msg.delete(1000);

@@ -1,3 +1,4 @@
 {
-    "NO_PERMISSION": "```You don't have the permission to use this command!.```"
+    "NO_PERMISSION": "```You don't have the permission to use this command!.```",
+    "MSG_SEND_ERROR":"```Unable to send the embed!. Did you mix syntax styles?.```"
 }
