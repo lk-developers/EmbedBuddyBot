@@ -27,7 +27,7 @@ Simple discord bot for sending custom embeds to channels
 - You can skip providing arguments using a `space`. ***(Check out the examples below)***
 
 ### Rich Command Syntax
-`[PREFIX] ti:<value> | de:<value> | ch:<value>  | co:<value> | th:<value> | an:<value> | ai:<value> | al:<value>`
+`[PREFIX] ti~<value> | de~<value> | ch~<value>  | co~<value> | th~<value> | an~<value> | ai~<value> | al~<value>`
 
 #### Keys explained
 | Key|      Meaning     |
@@ -43,9 +43,9 @@ Simple discord bot for sending custom embeds to channels
 
 #### Rich Command usage
 - Rich commands allow you to send arguments in any order.
-- It uses `key:value` pairs.
+- It uses `key~value` pairs.
 - Everything except `ti` is optional.
-- You need to provide the arguments using `key:value` pairs, separated by the `|` character.  *(You can change this character)*.
+- You need to provide the arguments using `key~value` pairs, separated by the `|` character.  *(You can change this character)*.
 
 ### Examples
 ***`?embed` is used as the prefix for examples.***
@@ -65,7 +65,7 @@ Simple discord bot for sending custom embeds to channels
   ***`(Space is used to skip the <channel name> argument)`***
 
 5. Send an embed to a channel named example using rich commands.  
-  `?embed ti:test | ch:example`
+  `?embed ti~test | ch~example`
 
 6. Send an embed to a channel named example with the color red using rich commands.  
-  `?embed ti:test | ch:example | co:#ff0000`
+  `?embed ti~test | ch~example | co~#ff0000`
