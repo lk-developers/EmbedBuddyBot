@@ -40,6 +40,9 @@ Simple discord bot for sending custom embeds to channels
 | an | author name      |
 | ai | author image url |
 | al | author link      |
+| im | image url        |
+| ft | footer text      |
+| fi | footer img       |
 
 #### Rich Command usage
 - Rich commands allow you to send arguments in any order.
