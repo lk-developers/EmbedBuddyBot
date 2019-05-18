@@ -9,7 +9,8 @@ const getEmbed = (data) => {
         .setAuthor(data.author.name, data.author.img, data.author.link)
         .setDescription(data.desc)
         .setThumbnail(data.thumb)
-        .setImage(data.img);
+        .setImage(data.img)
+        .setFooter(data.footer.text, data.footer.img);
     return embed;
 };
 
@@ -72,7 +73,7 @@ const getRichEmbedData = (discordData) => {
                 case "th":
                     embedData.thumb = value;
                     break;
-                case "im":                    
+                case "im":
                     embedData.img = value;
                     break;
                 case "an":
@@ -82,7 +83,13 @@ const getRichEmbedData = (discordData) => {
                     embedData.author.img = value;
                     break;
                 case "al":
-                    embedData.author.link = value.trim();
+                    embedData.author.link = value;
+                    break;
+                case "ft":
+                    embedData.footer.text = value;
+                    break;
+                case "fi":
+                    embedData.footer.img = value;
                     break;
             }
         });
@@ -106,6 +113,10 @@ const getEmbedDataTemplate = () => {
             "name": "",
             "img": "",
             "link": ""
+        },
+        "footer": {
+            "text": "",
+            "img": ""
         }
     };
 };
