@@ -8,8 +8,8 @@ const getEmbed = (data) => {
         .setTitle(data.title)
         .setAuthor(data.author.name, data.author.img, data.author.link)
         .setDescription(data.desc)
-        .setThumbnail(data.thumb);
-
+        .setThumbnail(data.thumb)
+        .setImage(data.img);
     return embed;
 };
 
@@ -72,6 +72,9 @@ const getRichEmbedData = (discordData) => {
                 case "th":
                     embedData.thumb = value;
                     break;
+                case "im":                    
+                    embedData.img = value;
+                    break;
                 case "an":
                     embedData.author.name = value;
                     break;
@@ -98,6 +101,7 @@ const getEmbedDataTemplate = () => {
         "chName": "",
         "color": "",
         "thumb": "",
+        "img": "",
         "author": {
             "name": "",
             "img": "",
