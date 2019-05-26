@@ -72,3 +72,7 @@ Simple discord bot for sending custom embeds to channels
 
 6. Send an embed to a channel named example with the color red using rich commands.  
   `?embed ti~test | ch~example | co~#ff0000`
+  
+  <a href="https://www.patreon.com/ipmanlk">
+    <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png">
+  </a>
